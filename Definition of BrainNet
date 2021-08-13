@@ -1,0 +1,16 @@
+1  Define Brain as N-M box :Any F([x1,x2,…,xN]) = [y1,y2,…,yM] is a Brain
+2  Define BrainNet as Combination of Brains:
+Give a N-M requirement, here is a structure: N – f1,f2,…,fk –N1|N2|…|Nk – concat – N1+N2+…+Nk – M , where f1,f2,..,fk are Brains;  
+For the   N1+N2+…+Nk – M   part, it is a new requirement , and can be applied previous procedure recursively.
+       As for MLP, it is a specific type of BrainNet, where N1=N2=…=Nk = 1,and k is the dimension of the first hidden layer. 
+      It is easy to see that every BrainNet is also a Brain.
+      3 Examples of BrainNets:
+1  40000 – f1,f2,…,f10 -- 100|100|…|100  --concat--1000—10
+2  40000 – f1,f2,…,f10 -- 100|100|…|100  -- 500|500—g1,g2--5|5 –concat--10
+3  500*500*3 – 224*224*3 * 4 – 1000*4 – 1000 (transformation functions are omitted )
+4  1000*1000*3 – 500*500*3 *4 – 1000*4 – 1000
+5  224*224*3 – 224*224*3  *4 – 1000*4 – 1000
+6  224*224*3 – 224*224*3|112*112*3|56*56*3 – 1000|1000|1000 – 3000 -- 1000 
+( As for the 224*224*3 – 1000 transformation, we can choose from VGG16, VGG19, ResNet50, ResNet101, and many other popular neural net architectures )
+      BrainNets may perform better or worse than common Neural Nets in different machine learning tasks. 
+      No matter what, the concept of BrainNet will provide neural architecture search researchers with a much larger architecture space to explore. 
